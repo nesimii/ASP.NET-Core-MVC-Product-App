@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using StoreApp.Models;
+using Repositories;
+using Repositories.Contracts;
 
 namespace StoreApp
 {
@@ -11,10 +12,14 @@ namespace StoreApp
 
             builder.Services.AddDbContext<RepositoryContext>(options =>
             {
-                options.UseSqlite(builder.Configuration.GetConnectionString("sqlConnection"));
+                options.UseSqlite(builder.Configuration.GetConnectionString("sqlConnection"), b => b.MigrationsAssembly("StoreApp"));
             });
 
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             var app = builder.Build();
 
