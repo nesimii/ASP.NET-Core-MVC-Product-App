@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Repositories.Contracts;
+using Services;
+using Services.Contracts;
 
 namespace StoreApp
 {
@@ -17,9 +19,15 @@ namespace StoreApp
 
             builder.Services.AddControllersWithViews();
 
+            // IoC Repositories
             builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+            // IoC Services
+            builder.Services.AddScoped<IServiceManager, ServiceManager>();
+            builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
             var app = builder.Build();
 
