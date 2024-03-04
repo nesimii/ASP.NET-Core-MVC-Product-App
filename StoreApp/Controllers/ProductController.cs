@@ -15,14 +15,14 @@ namespace StoreApp.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Product>? model = _manager.ProductService.GetAllProducts(false);
-            return View(model);
+            IEnumerable<Product>? products = _manager.ProductService.GetAllProducts(false);
+            return View(viewName: "Index", model: products);
         }
 
         public IActionResult Get([FromRoute(Name = "id")] int id)
         {
             Product? product = _manager.ProductService.GetOneProduct(id, false);
-            return View(product);
+            return View(viewName: "Get", model: product);
         }
     }
 }

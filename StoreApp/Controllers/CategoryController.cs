@@ -15,8 +15,8 @@ public class CategoryController : Controller
 
     public IActionResult Index()
     {
-        IEnumerable<Category>? model = _manager.CategoryService.GetAllCategories(false);
-        return View("Index", model);
+        IEnumerable<Category>? categories = _manager.CategoryService.GetAllCategories(false);
+        return View(viewName: "Index", model: categories);
     }
 
 }

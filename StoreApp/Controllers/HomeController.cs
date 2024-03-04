@@ -6,7 +6,7 @@ namespace StoreApp.Controllers
     {
         public IActionResult Index()
         {
-            return View("Index");
+            return View(viewName: "Index");
         }
     }
 }
