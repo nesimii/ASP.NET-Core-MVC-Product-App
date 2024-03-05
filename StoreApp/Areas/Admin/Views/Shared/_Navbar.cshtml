@@ -1,0 +1,35 @@
+<nav class="navbar bg-dark border-bottom navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="/">Admin Panel</a>
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between" id="navbarNavAltMarkup">
+        <hr class="my-1" style="border: 1px solid #fff;">
+
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" asp-controller="Dashboard" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" asp-controller="Product" asp-action="Index">Products
+                        (@await Component.InvokeAsync("ProductSummary"))</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" asp-controller="Category" asp-action="Index">Categories</a>
+                </li>
+            </ul>
+
+<hr class="my-1" style="border: 1px solid #fff;">
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link text-light" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">Web</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
